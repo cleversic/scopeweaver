@@ -38,7 +38,7 @@ COPY start.sh /app/start.sh
 RUN chmod +x /app/scopeweaver /app/start.sh
 COPY skills/ /app/skills/
 COPY LICENSE /app/LICENSE
-VOLUME ["/app/data"]
+# Persistent data in /app/data is provided by a Railway Volume mounted at /app/data.
 EXPOSE 8787 8788
 ENTRYPOINT ["/app/start.sh"]
 CMD ["-addr", ":8787", "-proxy", ":8788"]
